@@ -39,7 +39,7 @@ parser.add_argument("--lr", type = float, default = 0.001)
 parser.add_argument("--batch_size", type = int, default = 8)
 parser.add_argument("--model", type = str, default = '')
 parser.add_argument("--segLoss", type = str, default = "BCE")
-parser.add_argument("--model_type", type = str, default="resnet18")
+parser.add_argument("--model_type", type = str, default="resnet50")
 
 args = parser.parse_args()
 

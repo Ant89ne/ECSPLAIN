@@ -5,7 +5,6 @@ import numpy as np
 
 def scoreCAM(inputs, model, batch_size = 4, device = "cpu", training = True, select = True):
 
-
     dropFeats = 0.25
 
     all_outputs = model(inputs)
