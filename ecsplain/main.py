@@ -7,7 +7,7 @@ from src.movingAreasDataLoader import MA_Truth_Dataset
 from src.routine import training_routine, evaluation_routine
 from src.utils import checkDir, Identity
 from src.visualization import visGraph, visIm
-from src.cams import scoreCAM, gradCAM, layerCAM, gradCAMplusplus, normCAM
+from src.cams import scoreCAM, gradCAM, layerCAM, normCAM
 
 #Pytorch libraries
 import torch
@@ -141,8 +141,6 @@ xaiModel = xaiModel.to(device)
 
 if args.cam_type == "grad_cam":
     cam_fn = gradCAM
-elif args.cam_type == "grad_cam_plus_plus":
-    cam_fn = gradCAMplusplus
 elif args.cam_type == "layer_cam":
     cam_fn = layerCAM
 elif args.cam_type == "score_cam":
