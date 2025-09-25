@@ -7,7 +7,7 @@ import math
 import monai.metrics as mmet
 import torchmetrics as tmet
 
-def getMetrics(preds, truth, camPred, camTruth, device, threshold = 0.5):
+def getMetrics(preds, truth, camPred, camTruth, threshold = 0.5):
     """
     Function which evaluates the predictions of the network in terms of classification and segmentation
 
@@ -15,7 +15,6 @@ def getMetrics(preds, truth, camPred, camTruth, device, threshold = 0.5):
     @input truth:               Classification labels
     @input camPred:             Segmentation generated (CAM)
     @input camTruth:            Segmentaion labels
-    @input device:              Device on which to calculate metrics
 
     @return:                    Array of Accuracy, Precision, Recall, F1-Score, MAE, Dice and Hausdorff distance
     """
