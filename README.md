@@ -12,6 +12,8 @@ The repository contains two folders :
 
 The proposed code has been tested using python 3.10 and the libraries provided in the requirement.txt file.
 
+The dataset used for the experiments can be downloaded on <a href = "https://ieee-dataport.org/documents/isslide-insar-dataset-slow-sliding-area-detection-machine-learning"> IEEE Dataport </a>
+
 ## Running the ECSPLAIN framework
 
 To ensure that the code runs correctly, pleae follow the next steps:
