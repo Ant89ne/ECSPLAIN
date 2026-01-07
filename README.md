@@ -6,9 +6,11 @@ One can find the paper relative to this in <a href="https://ieeexplore.ieee.org/
 
 The repository contains two folders :
 <ul>
-    <li> ecsplain:</b> used to run the proposed ECSPLAIN framework
+    <li> <b>ecsplain:</b> used to run the proposed ECSPLAIN framework
     <li> <b>baselineNetworks:</b> used to run the comparative methods in the paper
 </ul>
+
+The proposed code has been tested using python 3.10 and the libraries provided in the requirement.txt file.
 
 ## Running the ECSPLAIN framework
 
