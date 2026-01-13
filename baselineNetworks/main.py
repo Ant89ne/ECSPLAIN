@@ -45,11 +45,12 @@ np.random.seed(seed)
 #########################################################
 
 #Path to moving areas images
-path1 = "" 
+path1 = "/Users/bralet/Desktop/Pro/ReadyToBeUsedDataset/"
 #Path to no move areas images
-path0 = ""
+path0 = "/Users/bralet/Desktop/Pro/Empty/"
+
 #Path to save results
-saveDir = ""
+saveDir = "./Checkpoints/"
 
 
 #Model parameters
@@ -60,6 +61,7 @@ pretrained = False
 epochsNb = args.nb_epochs           
 batchsize = args.batch_size         
 lr = args.lr                        
+nw = 0
 
 #########################################################
 #                   AUTOMATIC PARAMS                    #
@@ -85,8 +87,8 @@ dataset_e = MA_Truth_Dataset(path1=path1, path0=path0, typedataset=1, stock = Fa
 print(len(dataset_t), len(dataset_e))
 
 #Create training and evaluation dataloaders
-dataloader_t = DataLoader(dataset_t, batch_size=batchsize, shuffle=True, num_workers=10, drop_last = True)
-dataloader_e = DataLoader(dataset_e, batch_size=batchsize, shuffle=True, num_workers = 10, drop_last = True)
+dataloader_t = DataLoader(dataset_t, batch_size=batchsize, shuffle=True, num_workers=nw, drop_last = True)
+dataloader_e = DataLoader(dataset_e, batch_size=batchsize, shuffle=True, num_workers = nw, drop_last = True)
 
 #########################################################
 #                   DEEP MODEL                          #

@@ -69,7 +69,7 @@ def getMetrics(camPred, truth, camTruth, threshold = 0.5):
 
             #Dice Score
             diceScore = mmet.DiceMetric(reduction="none")(camPred,camTruth)
-            
+
             #Hausdorff Distance
             hausdorffDist = mmet.compute_hausdorff_distance(camPred, camTruth)
 

@@ -19,7 +19,7 @@ def checkDir(path):
         #Remove the path if it exists
         shutil.rmtree(path)
     #Recreate it empty
-    os.mkdir(path)
+    os.makedirs(path)
 
 
 def visIms(model, dataloader, saveDir, epoch, nbIms = 20, device = "cpu"):

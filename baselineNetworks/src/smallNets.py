@@ -94,7 +94,7 @@ class SmallUNet(nn.Module):
     """
     Class for a siple U-Net network
     """
-    def __init__(self, inputChannels = 3):
+    def __init__(self, inputChannels = 2):
         """
         Initialization
 
@@ -203,7 +203,7 @@ class ResUNet(nn.Module):
     Class for the Residual U-Net
     """
 
-    def __init__(self, inputChannels = 3):
+    def __init__(self, inputChannels = 2):
         """
         Initialization
        
@@ -303,7 +303,7 @@ class SepConvUNet(nn.Module):
     Class for the separable convolutions U-Net
     """
 
-    def __init__(self, inputChannels = 3):
+    def __init__(self, inputChannels = 2):
         """
         Initialization
 

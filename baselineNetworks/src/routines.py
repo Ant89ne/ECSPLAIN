@@ -1,5 +1,5 @@
 from tqdm import tqdm
-from metricsEval import getMetrics
+from src.metricsEval import getMetrics
 import numpy as np
 import torch
 
@@ -23,7 +23,7 @@ def training_routine(dataloader, model, loss, optimizer, device):
     model.train()
 
     #Initialization
-    allmets = np.zeros(5)
+    allmets = np.zeros(8)
     meanLoss = 0
 
     #Number of iteration on the dataloader
@@ -41,7 +41,7 @@ def training_routine(dataloader, model, loss, optimizer, device):
         res = model(inputImgs)["out"]
         
         #Loss computation
-        totalLoss = loss(res, segms.unsqueeze(1).type(torch.float))
+        totalLoss = loss(res, segms.type(torch.float))
 
         # Backward pass
         totalLoss.backward()
@@ -50,9 +50,9 @@ def training_routine(dataloader, model, loss, optimizer, device):
         optimizer.step()
 
         # Metrics computations
-        met = np.zeros(5)
+        met = np.zeros(8)
         for ii, ima in enumerate(res) :
-            met += getMetrics(ima, segms[ii].unsqueeze(1))
+            met += getMetrics(ima, k[1][ii].to(device), segms[ii].unsqueeze(1))
         
         #Save metrics and loss
         allmets += met/ii
@@ -80,7 +80,7 @@ def evaluation_routine(dataloader, model, losses, device):
     model.eval()
     
     #Initialization
-    allmets = np.zeros(5)
+    allmets = np.zeros(8)
     meanLoss = 0
 
     #Number of iterations on the dataaset
@@ -96,12 +96,12 @@ def evaluation_routine(dataloader, model, losses, device):
         res = model(inputImgs)["out"]
 
         # Loss computation
-        totalLoss = losses(res, segms.unsqueeze(1).type(torch.float))
+        totalLoss = losses(res, segms.type(torch.float))
 
         # Metrics calculations        
-        met = np.zeros(5)
+        met = np.zeros(8)
         for ii, ima in enumerate(res) :
-            met += getMetrics(ima, segms[ii].unsqueeze(1))
+            met += getMetrics(ima, k[1][ii].to(device), segms[ii].unsqueeze(1))
         
         # Save
         allmets += met/ii
