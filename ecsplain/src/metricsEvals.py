@@ -90,14 +90,15 @@ def getMetrics(preds, truth, camPred, camTruth, threshold = 0.5):
     return np.array([true_pos.cpu().item(), true_neg.cpu().item(), false_pos.cpu().item(), false_neg.cpu().item(), mae.cpu().item(), diceScore.cpu().item(), hausdorffDist.cpu().item(), nbones.cpu().item()])
 
 def compute_classif_mets(tp, tn, fp, fn):
+    eps = 0.0000000001
 
-    accuracy = (tp + tn)/(tp+tn+fp+fn)
+    accuracy = (tp + tn)/(tp+tn+fp+fn+eps)
 
-    precision = tp / (tp+fp)
+    precision = tp / (tp+fp+eps)
 
-    recall = tp / (tp+fn)
+    recall = tp / (tp+fn+eps)
 
-    f1score = (2*precision*recall)/(precision+recall)
+    f1score = (2*precision*recall)/(precision+recall+eps)
 
     return accuracy, precision, recall, f1score
 
