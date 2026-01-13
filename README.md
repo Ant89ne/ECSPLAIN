@@ -10,7 +10,7 @@ The repository contains two folders :
     <li> <b>baselineNetworks:</b> used to run the comparative methods in the paper
 </ul>
 
-The proposed code has been tested using python 3.10 and the libraries provided in the requirement.txt file.
+The proposed code has been tested using python 3.9.6 and the libraries provided in the requirement.txt file.
 
 The dataset used for the experiments can be downloaded on <a href = "https://ieee-dataport.org/documents/isslide-insar-dataset-slow-sliding-area-detection-machine-learning"> IEEE Dataport </a>
 
