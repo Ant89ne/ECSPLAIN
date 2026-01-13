@@ -58,7 +58,7 @@ def training_routine(dataloader, model, cam_fn, losses, optimizer, device):
         meanClassif += classifLoss.item()
         meanSegm += segmLoss.item()
         meanTot += totalLoss.item()
-        allmets += getMetrics(all_scores, labels, all_cams, segms, device)
+        allmets += getMetrics(all_scores, labels, all_cams, segms)
 
     allmets[0:4] = compute_classif_mets(allmets[0], allmets[1], allmets[2], allmets[3])
     
@@ -113,7 +113,7 @@ def evaluation_routine(dataloader, model, cam_fn, losses, device):
         meanClassif += deepcopy(classifLoss.item())
         meanSegm += deepcopy(segmLoss.item())
         meanTot += deepcopy(totalLoss.item())
-        allmets += deepcopy(getMetrics(all_scores, labels, all_cams, segms, device))
+        allmets += deepcopy(getMetrics(all_scores, labels, all_cams, segms))
 
         
     #Mean of Dice and Hausdorff distance over the true moves (not calculated when no move appears)
@@ -153,7 +153,7 @@ def test_routine(dataloader, model, cam_fn, device, threshold = 0.5):
             all_cams, all_scores = cam_fn(inputImgs, model, device = device)
         model.eval()
 
-        allmets += deepcopy(getMetrics(all_scores, labels, all_cams, segms, device, threshold=threshold))
+        allmets += deepcopy(getMetrics(all_scores, labels, all_cams, segms, threshold=threshold))
         moremets += deepcopy(compute_seg_mets(all_cams, segms, thresh= threshold, device = device))
 
 
