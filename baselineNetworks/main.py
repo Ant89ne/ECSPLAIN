@@ -45,12 +45,12 @@ np.random.seed(seed)
 #########################################################
 
 #Path to moving areas images
-path1 = "/Users/bralet/Desktop/Pro/ReadyToBeUsedDataset/"
+path1 = ""
 #Path to no move areas images
-path0 = "/Users/bralet/Desktop/Pro/Empty/"
+path0 = ""
 
 #Path to save results
-saveDir = "./Checkpoints/"
+saveDir = ""
 
 
 #Model parameters
