@@ -86,13 +86,15 @@ def getMetrics(camPred, truth, camTruth, threshold = 0.5):
 
 def compute_classif_mets(tp, tn, fp, fn):
 
-    accuracy = (tp + tn)/(tp+tn+fp+fn)
+    eps = 0.000000001
 
-    precision = tp / (tp+fp)
+    accuracy = (tp + tn)/(tp+tn+fp+fn+eps)
 
-    recall = tp / (tp+fn)
+    precision = tp / (tp+fp+eps)
 
-    f1score = (2*precision*recall)/(precision+recall)
+    recall = tp / (tp+fn+eps)
+
+    f1score = (2*precision*recall)/(precision+recall+eps)
 
     return accuracy, precision, recall, f1score
 
